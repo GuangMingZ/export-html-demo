@@ -6,6 +6,7 @@ import { snapshot, rebuild } from "rrweb-snapshot";
 import echarts from "@/utils/echarts";
 import { sleep } from "@/utils/index";
 import { uploadToOSS, downloadImage } from "@/utils/image";
+import demoImg from "@/assets/demo.png";
 import { tableData, echartsOption } from "./constants";
 import type { DataType } from "./types";
 import s from "./index.module.scss";
@@ -101,7 +102,6 @@ const Home: React.FC = () => {
    * 缺点：下载的html需要联网才能正常访问图片
    * @param doc
    */
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const processImages = async (doc: Document): Promise<void> => {
     const images = doc.getElementsByTagName("img");
 
@@ -292,10 +292,11 @@ const Home: React.FC = () => {
           <li>React Router 的路由管理</li>
         </ul>
       </Card>
-      <Image
+      {/* <Image
         width={200}
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-      />
+      /> */}
+      <img src={demoImg} alt="demo" width={200} />
       <div ref={$div} className={s["echart-div"]}></div>
       <Table<DataType> columns={columns} dataSource={tableData} />
     </Space>
